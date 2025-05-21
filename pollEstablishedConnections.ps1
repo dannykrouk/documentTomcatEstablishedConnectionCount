@@ -9,7 +9,7 @@
 $logFile = "c:\temp\established_connection_count_to_6443.log"
 
 $d = Get-Date -Format "u"
-$cnt = [string]((Get-NetTCPConnection -State Established) | Where-Object { $_.RemotePort -eq "6443" }).Count
+$cnt = [string]((Get-NetTCPConnection -State Established) | Where-Object { $_.LocalPort -eq "6443" }).Count
 
 $logEntry = $d + ", " + $cnt
 
